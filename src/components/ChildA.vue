@@ -4,7 +4,7 @@
       <pre>data {{ this.$data }}</pre>
       <hr/>
       <button @click="changeScore">Change Score</button>
-      <span>Score: {{ score }}</span>
+      <span>Score: {{ localScore }}</span>
     </div>
 </template>
 
@@ -12,16 +12,17 @@
 export default {
   name: 'Child A',
   props: ['score'],
-//   data: function() {
-//       return {
-//           localScore : this.score
-//       }
-//   },
+  computed: function() {
+      return {
+          localScore : this.score
+      }
+  },
   methods: {
         changeScore() {
-            this.score += 100;
-            // this.$emit("updateScore", this.localScore);
+            this.localScore += 100;
+            this.$emit("updateScore", this.localScore);
         },
+
   }
 }
 </script>
