@@ -12,7 +12,7 @@
 export default {
   name: 'Child A',
   props: ['score'],
-  computed: function() {
+  data: function() {
       return {
           localScore : this.score
       }
